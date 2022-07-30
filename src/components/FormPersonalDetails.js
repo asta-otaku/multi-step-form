@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 class FormPersonalDetails extends Component {
   continue = (e) => {
+    // PROCESS THE FORM WHEN YOU LEARN BACKEND
+
     e.preventDefault();
     this.props.nextStep();
   };
