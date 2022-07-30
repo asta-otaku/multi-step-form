@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../App.css'
 
 class FormUserDetails extends Component {
   continue = (e) => {
@@ -12,7 +13,7 @@ class FormUserDetails extends Component {
 
     return (
       <>
-        <header>Enter User Details</header>
+        <header><h1>Login Details</h1></header>
         <form>
           <input
             type="text"
@@ -25,12 +26,6 @@ class FormUserDetails extends Component {
             value={ values.lastName }
             onChange={ handleChange('lastName') }
             placeholder="Last Name"
-          />
-          <input
-            type="text"
-            value={ values.age }
-            onChange={ handleChange('age') }
-            placeholder="Age"
           />
           <input
             type="text"
