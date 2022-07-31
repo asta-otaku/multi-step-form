@@ -90,3 +90,7 @@ h1, h4 {
   padding-top: 2rem;
   color: #0f0f0f;
 }
+
+p {
+  color: red;
+}
