@@ -10,17 +10,36 @@ function FormikContainer() {
     { key: "Option 2", value: "option2" },
     { key: "Option 3", value: "option3" },
   ];
+  const radioOptions = [
+    { key: "Option 1", value: "rOption1" },
+    { key: "Option 2", value: "rOption2" },
+    { key: "Option 3", value: "rOption3" },
+  ];
+  const checkboxOptions = [
+    { key: "Option 1", value: "cOption1" },
+    { key: "Option 2", value: "cOption2" },
+    { key: "Option 3", value: "cOption3" },
+  ];
   const initialValues = {
     email: "",
     description: "",
     selectOption: "",
+    radioOption: "",
+    checkboxOption: [],
+    birthDate: null,
   };
   const validationSchema = Yup.object({
     email: Yup.string().required("Required"),
     description: Yup.string().required("Required"),
     selectOption: Yup.string().required("Required"),
+    radioOption: Yup.string().required("Required"),
+    checkboxOption: Yup.array().required("Required"),
+    birthDate: Yup.date().required("Required").nullable(),
   });
-  onsubmit = (values) => console.log("Form Data", values);
+  onsubmit = (values) => {
+    console.log("Form Data", values);
+    console.log("Saved data", JSON.parse(JSON.stringify(values)))
+  };
   return (
     <Formik
       initialValues={initialValues}
@@ -40,12 +59,25 @@ function FormikContainer() {
             label="Description"
             name="description"
           />
-          <FormikContainer
+          <FormikControl
             control="select"
             label="Select a topic"
             name="selectOption"
             options={dropdownOptions}
           />
+          <FormikControl
+            control="radio"
+            label="Radio Topic"
+            name="radioOption"
+            options={radioOptions}
+          />
+          <FormikControl
+            control="checkbox"
+            label="Checkbox Topics"
+            name="checkboxOption"
+            options={checkboxOptions}
+          />
+          <FormikControl control="date" label="Pick a date" name="birthDate" />
           <button type="submit">Submit</button>
         </Form>
       )}
