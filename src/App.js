@@ -5,8 +5,8 @@ import FormikContainer from './formikComponents/FormikContainer';
 function App() {
   return (
     <div className="App">
-      {/* <UserForm /> */}
-      <FormikContainer />
+      <UserForm />
+      {/* <FormikContainer /> */}
     </div>
   );
 }
