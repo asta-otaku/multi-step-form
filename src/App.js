@@ -1,13 +1,12 @@
-import './App.css';
-import UserForm from './components/UserForm';
-import FormikContainer from './formikComponents/FormikContainer';
+import "./App.css";
+import UserForm from "./components/UserForm";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <UserForm />
-      {/* <FormikContainer /> */}
-    </div>
+    <Routes>
+      <Route path="/" element={<UserForm />} />
+    </Routes>
   );
 }
 
