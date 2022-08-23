@@ -82,7 +82,7 @@
 
 // export default FormUserDetails;
 
-import React from "react";
+import React, { useState} from "react";
 import "../App.css";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -90,14 +90,25 @@ import FormikControl from "../formikComponents/FormikControl";
 
 function FormUserDetails(props) {
   const { values, nextStep } = props;
-  const { firstName, lastName, email } = values;
-  const initialValues = { firstName, lastName, email };
+  // const { firstName, lastName, email } = values;
+  const [ initialValues, setInitialValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: ""
+  })
+  // const initialValues = { firstName, lastName, email };
   const validationSchema = Yup.object({
     firstName: Yup.string().required("Required!"),
     lastName: Yup.string().required("Required!"),
     email: Yup.string().email("Invalid Email Format").required("Required!"),
   });
   onsubmit = (values) => {
+    const { firstName, lastName, email } = values
+    setInitialValues({
+      firstName: firstName,
+      lastName: lastName,
+      email: email
+    })
     nextStep();
   };
 

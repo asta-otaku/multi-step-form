@@ -85,8 +85,8 @@ import FormUserDetails from "./FormUserDetails";
 import Success from "./Success";
 
 function UserForm() {
-  const [step, setStep] = useState(1);
-  const initialValues = {
+  const [initialValues, setInitialValues] = useState({
+    step: 1,
     firstName: "",
     lastName: "",
     age: "",
@@ -94,12 +94,20 @@ function UserForm() {
     occupation: "",
     city: "",
     bio: "",
+  });
+
+  const nextStep = () => {
+    const { step } = initialValues;
+    setInitialValues({ step: step + 1 });
   };
-  const nextStep = () => setStep((prevStep) => prevStep + 1);
-  const backStep = () => setStep((prevStep) => prevStep - 1);
+  const backStep = () => {
+    const { step } = initialValues;
+    setInitialValues({ step: step - 1 });
+  };
 
   const { firstName, lastName, age, email, occupation, city, bio } =
     initialValues;
+  const { step } = initialValues;
   const values = { firstName, lastName, age, email, occupation, city, bio };
 
   switch (step) {
