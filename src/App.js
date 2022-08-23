@@ -4,9 +4,11 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<UserForm />} />
-    </Routes>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<UserForm />} />
+      </Routes>
+    </div>
   );
 }
 
