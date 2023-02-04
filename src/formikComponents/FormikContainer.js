@@ -38,7 +38,7 @@ function FormikContainer() {
   });
   onsubmit = (values) => {
     console.log("Form Data", values);
-    console.log("Saved data", JSON.parse(JSON.stringify(values)))
+    console.log("Saved data", JSON.parse(JSON.stringify(values)));
   };
   return (
     <Formik
