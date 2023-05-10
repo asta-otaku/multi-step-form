@@ -5,7 +5,7 @@ import { Field, ErrorMessage } from "formik";
 import TextError from "./TextError";
 
 function DatePicker(props) {
-  const { label, name, ...rest } = props;
+  const { label, name, placeholder, ...rest } = props;
   return (
     <div className="form-control">
       <label htmlFor={name}>{label}</label>
@@ -15,6 +15,7 @@ function DatePicker(props) {
           const { value } = field;
           return (
             <DateView
+              placeholderText={placeholder}
               id={name}
               {...field}
               {...rest}
